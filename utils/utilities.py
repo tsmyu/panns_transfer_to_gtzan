@@ -27,13 +27,11 @@ def get_filename(path):
 def traverse_folder(fd):
     paths = []
     names = []
-
     for root, dirs, files in os.walk(fd):
         for name in files:
             filepath = os.path.join(root, name)
             names.append(name)
             paths.append(filepath)
-
     return names, paths
 
 

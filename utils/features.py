@@ -57,9 +57,9 @@ def pack_audio_files_to_hdf5(args):
     meta_dict = {
         'audio_name': np.array(audio_names), 
         'audio_path': np.array(audio_paths), 
-        'target': np.array([lb_to_idx[audio_name.split('.')[0]] for audio_name in audio_names]), 
+        'target': np.array([lb_to_idx[audio_name.split('.')[0].split("_")[0]] for audio_name in audio_names]), 
         'fold': np.arange(len(audio_names)) % 10 + 1}
-    
+    print(meta_dict)
     if mini_data:
         mini_num = 10
         total_num = len(meta_dict['audio_name'])
